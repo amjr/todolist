@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier/react"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "linebreak-style": 0,
+    "global-require": 0,
+    "eslint linebreak-style": [0, "error", "windows"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "max-len": ["error", { "code": 150 }],
+    "import/no-unresolved": "off",
+    "no-nested-ternary": "error",
+    "max-depth": ["error", 4],
+    "camelcase": "error",
+    "no-use-before-define": "error",
+    "react/jsx-props-no-spreading": "warn",
+    "react/prop-types": "warn",
+    "no-loop-func": "error",
+    "array-callback-return": "error",
+    "no-param-reassign": "error",
+    "react/destructuring-assignment": "error",
+    "max-lines": ["error", { "max": 150, "skipComments": true }],
+    "react/no-children-prop": "error",
+    "react/prefer-stateless-function": ["error", { "ignorePureComponents": false }]
+  }
+}

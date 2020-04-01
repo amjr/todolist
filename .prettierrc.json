@@ -1,0 +1,6 @@
+{
+  "singleQuote": true,
+  "spaces": 2,
+  "max-line-length": 120,
+  "printWidth": 120
+}
