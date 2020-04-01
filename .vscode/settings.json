@@ -1,0 +1,31 @@
+{
+  "[php]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 0,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "prettier.jsxSingleQuote": true,
+  "prettier.configPath": ".prettierrc.json",
+  "explorer.confirmDelete": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "files.exclude": {
+    "serviceWrker.js": true
+  }
+}
