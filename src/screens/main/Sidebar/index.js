@@ -1,27 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as colors from 'colors';
+import { SidebarContextConsumer } from 'screens/main/Sidebar/context';
 import { IconButton, styled as materialStyled, Tooltip } from '@material-ui/core/';
 import { Add, Delete } from '@material-ui/icons';
 
 export default () => (
-  <Sidebar>
-    <Tooltip title="Adicionar novo item" aria-label="Adicionar novo item" placement="right">
-      <div>
-        <AddButton variant="contained" aria-label="adicionar novo item">
-          <Add />
-        </AddButton>
-      </div>
-    </Tooltip>
+  <SidebarContextConsumer>
+    {(context) => (
+      <Sidebar>
+        <Tooltip title="Adicionar novo item" aria-label="Adicionar novo item" placement="right">
+          <div>
+            <AddButton variant="contained" aria-label="adicionar novo item">
+              <Add />
+            </AddButton>
+          </div>
+        </Tooltip>
 
-    <Tooltip title="Remover item" aria-label="Remover item" placement="right">
-      <div>
-        <RemoveButton variant="contained" aria-label="adicionar novo item">
-          <Delete />
-        </RemoveButton>
-      </div>
-    </Tooltip>
-  </Sidebar>
+        <Tooltip title="Remover itens selecionados" aria-label="Remover itens selecionados" placement="right">
+          <div>
+            <RemoveButton variant="contained" aria-label="Remover itens selecionados" disabled={!context.hasChecked}>
+              <Delete onClick={context.deletSelectedItems} />
+            </RemoveButton>
+          </div>
+        </Tooltip>
+      </Sidebar>
+    )}
+  </SidebarContextConsumer>
 );
 
 const Sidebar = styled.div`

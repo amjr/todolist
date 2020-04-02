@@ -11,3 +11,5 @@ export const midRed = red[300];
 export const darkRed = red[500];
 export const lightGrey = grey[50];
 export const midGrey = grey[300];
+export const darkGrey = grey[300];
+export const darkerGrey = grey[900];
