@@ -31,7 +31,7 @@
     "eslint linebreak-style": [0, "error", "windows"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "max-len": ["error", { "code": 150 }],
-    "import/no-unresolved": "off",
+    // "import/no-unresolved": "off",
     "no-nested-ternary": "error",
     "max-depth": ["error", 4],
     "camelcase": "error",
