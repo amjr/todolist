@@ -21,7 +21,7 @@ export default () => {
   return (
     <ContainerContextConsumer>
       {(context) => (
-        <SearchWrapper>
+        <SearchWrapper className="SearchWrapper">
           <TextField
             label="Buscar item"
             onChange={(e) => handleTChange(e, context.filterItems)}
@@ -39,4 +39,8 @@ const SearchWrapper = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+
+  > div {
+    width: 30%;
+  }
 `;

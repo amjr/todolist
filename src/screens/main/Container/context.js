@@ -1,10 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import * as listActions from 'store/list/actions';
 
 const ContainerContext = createContext();
 
+let filterTimeout = null;
 export const ContainerContextProvider = (props) => {
   const { children } = props;
   const dispatch = useDispatch();
@@ -28,13 +29,21 @@ export const ContainerContextProvider = (props) => {
   };
 
   const filterItems = (term) => {
-    const newList = [...list].filter(
-      (item) => JSON.stringify(item)
-        .toLocaleLowerCase()
-        .indexOf(term) > -1,
-    );
-    setRenderedList(newList);
+    clearTimeout(filterTimeout);
+
+    filterTimeout = setTimeout(() => {
+      const newList = [...list].filter(
+        (item) => JSON.stringify(item)
+          .toLocaleLowerCase()
+          .indexOf(term.toLocaleLowerCase()) > -1,
+      );
+      setRenderedList(newList);
+    }, 500);
   };
+
+  useEffect(() => {
+    setRenderedList(list);
+  }, [list]);
 
   const values = {
     insideContainer: true,
