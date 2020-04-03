@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import * as listActions from 'store/list/actions';
@@ -9,6 +9,7 @@ export const ContainerContextProvider = (props) => {
   const { children } = props;
   const dispatch = useDispatch();
   const list = useSelector((state) => state.list.list);
+  const [renderedList, setRenderedList] = useState(list);
 
   const toggleItem = (item) => {
     const newItem = item;
@@ -26,12 +27,23 @@ export const ContainerContextProvider = (props) => {
     dispatch(listActions.deleteItem(item));
   };
 
+  const filterItems = (term) => {
+    const newList = [...list].filter(
+      (item) => JSON.stringify(item)
+        .toLocaleLowerCase()
+        .indexOf(term) > -1,
+    );
+    setRenderedList(newList);
+  };
+
   const values = {
     insideContainer: true,
     list,
     toggleItem,
     togleFinished,
     deleteItem,
+    renderedList,
+    filterItems,
   };
 
   return <ContainerContext.Provider value={values}>{children}</ContainerContext.Provider>;

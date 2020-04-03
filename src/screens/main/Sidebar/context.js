@@ -11,6 +11,8 @@ export const SidebarContextProvider = (props) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => state.list.list);
   const [hasChecked, setHasChecked] = useState(false);
+  const [newItemModal, toggleNewItemModal] = useState(false);
+  const [newItemName, setNewItemName] = useState('');
 
   useEffect(() => {
     const checkedItems = findIndex(propEq('checked', true), list) > -1;
@@ -22,10 +24,20 @@ export const SidebarContextProvider = (props) => {
     dispatch(listActions.deletSelectedItems(checkedItems));
   };
 
+  const addItem = () => {
+    dispatch(listActions.addItem(newItemName));
+    setNewItemName('');
+  };
+
   const values = {
-    insideSidebar: true,
-    hasChecked,
     deletSelectedItems,
+    hasChecked,
+    insideSidebar: true,
+    newItemModal,
+    toggleNewItemModal,
+    newItemName,
+    setNewItemName,
+    addItem,
   };
   return <SidebarContext.Provider value={values}>{children}</SidebarContext.Provider>;
 };

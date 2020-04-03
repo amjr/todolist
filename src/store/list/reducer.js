@@ -27,8 +27,26 @@ export const initialState = {
 export default (state = initialState, action = {}) => {
   let newList = null;
   let index = null;
+  let item = null;
 
   switch (action.type) {
+    case types.ADD_ITEM:
+      newList = [...state.list];
+
+      item = {
+        id: newList.length,
+        name: action.payload.newItemName,
+        checked: false,
+        done: false,
+      };
+
+      newList.push(item);
+
+      return {
+        ...state,
+        list: newList,
+      };
+
     case types.DELETE_SELECTED_ITEMS:
       newList = [...state.list].filter((item) => {
         const shouldBeRemoved = findIndex(propEq('id', item.id), action.payload.list) > -1;

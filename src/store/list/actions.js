@@ -11,3 +11,7 @@ export const deleteItem = (item) => async (dispatch) => {
 export const deletSelectedItems = (list) => async (dispatch) => {
   dispatch(types.deletSelectedItems(list));
 };
+
+export const addItem = (newItemName) => async (dispatch) => {
+  dispatch(types.addItem(newItemName));
+};

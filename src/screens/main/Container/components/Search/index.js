@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { TextField, IconButton } from '@material-ui/core';
-import { Search } from '@material-ui/icons';
+import { TextField } from '@material-ui/core';
+import { ContainerContextConsumer } from 'screens/main/Container/context';
 
-export default () => (
-  <SearchWrapper>
-    <TextField label="Buscar item" />
+export default () => {
+  const [searchBy, setSearchBy] = useState('');
 
-    <IconButton color="primary">
-      <Search />
-    </IconButton>
-  </SearchWrapper>
-);
+  const handleKeyPress = (e, filterItems) => {
+    if (e.key === 'Escape') {
+      setSearchBy('');
+      filterItems('');
+    }
+  };
+
+  const handleTChange = (e, filterItems) => {
+    setSearchBy(e.target.value);
+    filterItems(e.target.value);
+  };
+
+  return (
+    <ContainerContextConsumer>
+      {(context) => (
+        <SearchWrapper>
+          <TextField
+            label="Buscar item"
+            onChange={(e) => handleTChange(e, context.filterItems)}
+            value={searchBy}
+            onKeyDown={(e) => handleKeyPress(e, context.filterItems)}
+          />
+        </SearchWrapper>
+      )}
+    </ContainerContextConsumer>
+  );
+};
 
 const SearchWrapper = styled.div`
   align-items: center;

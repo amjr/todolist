@@ -11,7 +11,7 @@ export default () => (
   <ListWrapper>
     <Grid container direction="column">
       <ContainerContextConsumer>
-        {(context) => context.list.map((item) => (
+        {(context) => context.renderedList.map((item) => (
             <Row>
               <Grid item xs={1} styled={{}}>
                 <Cel center>

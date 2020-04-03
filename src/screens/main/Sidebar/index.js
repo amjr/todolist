@@ -4,6 +4,7 @@ import * as colors from 'colors';
 import { SidebarContextConsumer } from 'screens/main/Sidebar/context';
 import { IconButton, styled as materialStyled, Tooltip } from '@material-ui/core/';
 import { Add, Delete } from '@material-ui/icons';
+import Modal from './components/modal';
 
 export default () => (
   <SidebarContextConsumer>
@@ -11,7 +12,11 @@ export default () => (
       <Sidebar>
         <Tooltip title="Adicionar novo item" aria-label="Adicionar novo item" placement="right">
           <div>
-            <AddButton variant="contained" aria-label="adicionar novo item">
+            <AddButton
+              variant="contained"
+              aria-label="adicionar novo item"
+              onClick={() => context.toggleNewItemModal(!context.newItemModal)}
+            >
               <Add />
             </AddButton>
           </div>
@@ -24,6 +29,8 @@ export default () => (
             </RemoveButton>
           </div>
         </Tooltip>
+
+        <Modal />
       </Sidebar>
     )}
   </SidebarContextConsumer>
