@@ -48,8 +48,8 @@ export default (state = initialState, action = {}) => {
       };
 
     case types.DELETE_SELECTED_ITEMS:
-      newList = [...state.list].filter((item) => {
-        const shouldBeRemoved = findIndex(propEq('id', item.id), action.payload.list) > -1;
+      newList = [...state.list].filter((listItem) => {
+        const shouldBeRemoved = findIndex(propEq('id', listItem.id), action.payload.list) > -1;
         return !shouldBeRemoved;
       });
 

@@ -105,6 +105,7 @@ const Cel = styled.div`
   ${(props) => props.spaceAround && 'justify-content: space-around;'}
 `;
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const FinishButton = materialStyled(({ ...other }) => <IconButton {...other} />)({
   backgroundColor: colors.midGreen,
   color: '#fff',
@@ -120,6 +121,7 @@ const FinishButton = materialStyled(({ ...other }) => <IconButton {...other} />)
   },
 });
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const RemoveButton = materialStyled(({ ...other }) => <IconButton {...other} />)({
   backgroundColor: colors.midRed,
   color: '#fff',

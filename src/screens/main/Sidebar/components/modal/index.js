@@ -31,6 +31,7 @@ export default function TransitionsModal() {
   );
 }
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const StyledModal = materialStyled(({ ...other }) => <Modal {...other} />)({
   alignItems: 'center',
   display: 'flex',

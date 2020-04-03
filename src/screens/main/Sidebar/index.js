@@ -48,6 +48,7 @@ const Sidebar = styled.div`
   padding: 8px;
 `;
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const AddButton = materialStyled(({ ...other }) => <IconButton {...other} />)({
   backgroundColor: colors.midGreen,
   color: '#fff',
@@ -58,6 +59,7 @@ const AddButton = materialStyled(({ ...other }) => <IconButton {...other} />)({
   },
 });
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const RemoveButton = materialStyled(({ ...other }) => <IconButton {...other} />)({
   backgroundColor: colors.midRed,
   color: '#fff',
